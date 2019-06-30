@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField]
-    protected float movementSpeed;
+    protected float movementSpeed = 1f;
     [SerializeField]
-    protected float jumpSpeed;
+    protected float jumpSpeed = 1f;
 }
