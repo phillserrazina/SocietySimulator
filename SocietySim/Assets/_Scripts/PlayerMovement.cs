@@ -15,11 +15,13 @@ public class PlayerMovement : Movement
     private float mouseY;
 
     private Rigidbody rb;
+    private Camera playerCamera;
 
     // EXECUTION METHODS
 
-    private void Awake() {
+    private void Start() {
         rb = GetComponent<Rigidbody>();
+        playerCamera = GetComponentInChildren<Camera>();
     }
 
     void Update () {
@@ -41,6 +43,9 @@ public class PlayerMovement : Movement
 
     private void Move() {
         rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, mouseX * MouseSensitivity, 0)));
-        rb.MovePosition(transform.position + (transform.forward * verDirection * movementSpeed) + (transform.right * horDirection * movementSpeed));
+        playerCamera.transform.Rotate(new Vector3(mouseY * MouseSensitivity, 0, 0));
+        rb.MovePosition(transform.position + 
+                        (transform.forward * verDirection * movementSpeed * Time.fixedDeltaTime) + 
+                        (transform.right * horDirection * movementSpeed * Time.fixedDeltaTime));
     }
 }
