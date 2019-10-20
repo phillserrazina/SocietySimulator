@@ -1,41 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
     // VARIABLES
 
-    public enum Alignment {
-        Evil,
-        Neutral,
-        Good
-    }
-
-    public Alignment currentAlignment;
-
-    private float currentAlignmentPoints;
-    private const float EVIL_ALIGNMENT_VALUE = -50;
-    private const float NEUTRAL_ALIGNMENT_VALUE = 50;
-    private const float GOOD_ALIGNMENT_VALUE = 100;
+    public Ethnicities ethnicity { get; private set; }
+    public Religions religion { get; private set; }
+    public PoliticalStances politicalStance { get; private set; }
 
     // EXECUTION FUNCTIONS
 
     private void Start() {
-        currentAlignmentPoints = Random.Range(-100f, 100f);
-        currentAlignment = GetAlignment();
+        Initialize();
     }
 
     // METHODS
 
-    private Alignment GetAlignment() {
-        if (currentAlignmentPoints < EVIL_ALIGNMENT_VALUE) {
-            return Alignment.Evil;
-        }
-        else if (currentAlignmentPoints < NEUTRAL_ALIGNMENT_VALUE) {
-            return Alignment.Neutral;
-        }
-        
-        return Alignment.Good;
+    private void Initialize() {
+        var eValues = Enum.GetValues(typeof(Ethnicities));
+        ethnicity = (Ethnicities)eValues.GetValue(UnityEngine.Random.Range(0, eValues.Length));
+
+        var rValues = Enum.GetValues(typeof(Religions));
+        religion = (Religions)rValues.GetValue(UnityEngine.Random.Range(0, rValues.Length));
+
+        var psValues = Enum.GetValues(typeof(PoliticalStances));
+        politicalStance = (PoliticalStances)psValues.GetValue(UnityEngine.Random.Range(0, psValues.Length));
+
+        GetComponent<EconomicHandler>().Initialize();
+        GetComponent<AppearanceGenerator>().Initialize();
     }
 }

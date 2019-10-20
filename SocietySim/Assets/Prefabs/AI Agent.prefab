@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8356559223318208742}
   - component: {fileID: 8356559223318208743}
   - component: {fileID: 338022957262955101}
+  - component: {fileID: 5906206527591401534}
   m_Layer: 0
   m_Name: AI Agent
   m_TagString: Untagged
@@ -161,3 +162,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0941e13d9a1ab54da7eefa3805b9455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5906206527591401534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8356559223318208748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc030b085c4a80c4c942823e2f3035ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAlignment: 1
