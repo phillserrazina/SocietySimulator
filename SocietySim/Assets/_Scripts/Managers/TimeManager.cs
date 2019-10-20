@@ -9,7 +9,8 @@ public class TimeManager : MonoBehaviour
     private float currentCooldown;
     public int currentDay { get; private set; }
 
-    delegate void OnDayEndDelegate();
+    public delegate void OnDayEndDelegate();
+    public static event OnDayEndDelegate endOfDayListeners;
 
     private void Start() {
         currentDay = 0;
@@ -28,5 +29,6 @@ public class TimeManager : MonoBehaviour
 
         currentDay++;
         currentCooldown = nextDayCooldown;
+        if (endOfDayListeners != null) endOfDayListeners();
     }
 }

@@ -2,13 +2,15 @@
 
 public class EconomicHandler : MonoBehaviour
 {
-    private float currentIncome;
-    private float perDayCosts;
+    private float currentTotalMoney;
+    public float currentIncome;
+    public float perDayCosts;
 
     public EconomicPosition economicPosition { get; private set; }
 
     public void CalculateEndOfDay() {
-
+        currentTotalMoney += currentIncome;
+        currentTotalMoney -= perDayCosts;
     }
 
     public void Initialize() {
@@ -17,6 +19,8 @@ public class EconomicHandler : MonoBehaviour
 
         currentIncome = GetIncome();
         perDayCosts = GetPerDayCosts();
+
+        TimeManager.endOfDayListeners += CalculateEndOfDay;
     }
 
     private float GetIncome() {
@@ -29,7 +33,12 @@ public class EconomicHandler : MonoBehaviour
     private float GetPerDayCosts() {
         if (economicPosition == EconomicPosition.Low_Income) return Random.Range(300f, 500f);
 
-        return (economicPosition == EconomicPosition.Mid_Income) ? 
+        float answer;
+        answer = (economicPosition == EconomicPosition.Mid_Income) ? 
                 Random.Range(500f, 1500f) : Random.Range(1500f, 3000f);
+        
+        if (answer >= currentIncome) answer = currentIncome - 300;
+
+        return answer;
     }
 }

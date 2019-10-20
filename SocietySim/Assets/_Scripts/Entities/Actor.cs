@@ -32,5 +32,7 @@ public class Actor : MonoBehaviour
         economicHandler.Initialize();
         ethnicityHandler.Initialize();
         GetComponent<AppearanceGenerator>().Initialize();
+
+        SocietyTracker.Add(this);
     }
 }
