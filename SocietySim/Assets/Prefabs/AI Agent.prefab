@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 8356559223318208743}
   - component: {fileID: 338022957262955101}
   - component: {fileID: 5906206527591401534}
+  - component: {fileID: -6823089450787326446}
+  - component: {fileID: -2557348456627914423}
   m_Layer: 0
   m_Name: AI Agent
   m_TagString: Untagged
@@ -174,4 +176,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc030b085c4a80c4c942823e2f3035ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentAlignment: 1
+--- !u!114 &-6823089450787326446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8356559223318208748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e7db2ae3a5d45499f645c3d37c6af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2557348456627914423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8356559223318208748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e54a3f7c33982a4d853b76e457369da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

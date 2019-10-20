@@ -3,14 +3,20 @@
 public class EconomicHandler : MonoBehaviour
 {
     private float currentIncome;
+    private float perDayCosts;
 
     public EconomicPosition economicPosition { get; private set; }
+
+    public void CalculateEndOfDay() {
+
+    }
 
     public void Initialize() {
         var ecoValues = System.Enum.GetValues(typeof(EconomicPosition));
         economicPosition = (EconomicPosition)ecoValues.GetValue(Random.Range(0, ecoValues.Length));
 
         currentIncome = GetIncome();
+        perDayCosts = GetPerDayCosts();
     }
 
     private float GetIncome() {
@@ -18,5 +24,12 @@ public class EconomicHandler : MonoBehaviour
 
         return (economicPosition == EconomicPosition.Mid_Income) ? 
                 Random.Range(800f, 2000f) : Random.Range(2000f, 5000f);
+    }
+
+    private float GetPerDayCosts() {
+        if (economicPosition == EconomicPosition.Low_Income) return Random.Range(300f, 500f);
+
+        return (economicPosition == EconomicPosition.Mid_Income) ? 
+                Random.Range(500f, 1500f) : Random.Range(1500f, 3000f);
     }
 }

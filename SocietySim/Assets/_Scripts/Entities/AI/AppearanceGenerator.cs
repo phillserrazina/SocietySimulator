@@ -11,9 +11,8 @@ public class AppearanceGenerator : MonoBehaviour
     }
 
     private Color GetSkinColor() {
-        var actor = GetComponent<Actor>();
-
-        switch (actor.ethnicity)
+        var handler = GetComponent<EthnicityHandler>();
+        switch (handler.ethnicity)
         {
             case Ethnicities.Black: return new Color(0.5f, 0.2f, 0f);
             case Ethnicities.White: return new Color(0.9f, 0.8f, 0.7f);
