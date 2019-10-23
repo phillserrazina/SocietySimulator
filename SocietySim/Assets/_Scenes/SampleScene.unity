@@ -6762,6 +6762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632d1dad845ce0b4eb10e8f490a96802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  politicianInfo: {fileID: 1100973882}
 --- !u!114 &1129150543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8171,6 +8172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632d1dad845ce0b4eb10e8f490a96802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  politicianInfo: {fileID: 675172337}
 --- !u!114 &1471266191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10528,6 +10530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632d1dad845ce0b4eb10e8f490a96802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  politicianInfo: {fileID: 1445410846}
 --- !u!114 &1872841850
 MonoBehaviour:
   m_ObjectHideFlags: 0
