@@ -7,12 +7,13 @@ public class PlayerMovement : Movement
     // VARIABLES
 
     [SerializeField]
-    private float MouseSensitivity = 1f;
+    private float mouseSensitivity = 1f;
 
     private float horDirection;
     private float verDirection;
     private float mouseX;
     private float mouseY;
+    private float xRotation = 0f;
 
     private Rigidbody rb;
     private Camera playerCamera;
@@ -37,13 +38,17 @@ public class PlayerMovement : Movement
     private void GetInput() {
         horDirection = Input.GetAxis("Horizontal");
         verDirection = Input.GetAxis("Vertical");
-        mouseX = Input.GetAxis("Mouse X");
-        mouseY = Input.GetAxis("Mouse Y");
+        mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+
+        xRotation += mouseY;
+        xRotation = Mathf.Clamp(xRotation, -50f, 50f);
     }
 
     private void Move() {
-        rb.MoveRotation(rb.rotation * Quaternion.Euler(new Vector3(0, mouseX * MouseSensitivity, 0)));
-        playerCamera.transform.Rotate(new Vector3(mouseY * MouseSensitivity, 0, 0));
+        transform.Rotate(Vector3.up * mouseX);
+        playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
         rb.MovePosition(transform.position + 
                         (transform.forward * verDirection * movementSpeed * Time.fixedDeltaTime) + 
                         (transform.right * horDirection * movementSpeed * Time.fixedDeltaTime));

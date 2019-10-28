@@ -7,5 +7,7 @@ public class GameManager : MonoBehaviour
     private void Awake() {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        QualitySettings.vSyncCount = 0;
     }
 }

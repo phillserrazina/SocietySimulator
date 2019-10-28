@@ -10,6 +10,6 @@ public class Politician : MonoBehaviour
     [SerializeField] private Text politicianInfo = null;
 
     private void Start() {
-        politicianInfo.text = string.Format("{0} to {1} of all {2} people!", pEvent.eventStrength, pEvent.eventTypeInfo, pEvent.targetInfo);
+        politicianInfo.text = string.Format("<color=red><i>{0} to {1}</i></color> of all <color=blue>{2}</color> people!", pEvent.eventStrength, pEvent.eventTypeInfo, pEvent.targetInfo);
     }
 }
